@@ -1,7 +1,15 @@
 const server = require('./app.js');
-const { connDB } = require('./db.js')
+const { sequelize } = require('./db.js')
+///import models
 
-connDB.sync({alter: true})
+const { User } = require('./models/User.js');
+const { Hotel } = require('./models/Hotel.js');
+const { Room } = require('./models/Room.js');
+const { Booking } = require('./models/Booking.js');
+const { BookingPax } = require('./models/BookingPax.js');
+//
+
+sequelize.sync({alter: true}) // force :true /// alter:true
 .then(()=>{
 console.log('Database connected');
 server.listen(3000)
