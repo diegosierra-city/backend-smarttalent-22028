@@ -9,11 +9,11 @@ const { Booking } = require('./models/Booking.js');
 const { BookingPax } = require('./models/BookingPax.js');
 //
 
-sequelize.sync({alter: true}) // force :true /// alter:true
+sequelize.sync({force: true}) // force :true /// alter:true
 .then(()=>{
 console.log('Database connected');
 server.listen(3000)
-console.log('Server is running on port 3000');
+console.log('Server is running on port: 3000');
 })
 .catch((error)=>{
     console.error('Hay un error en la conexión a la Base de Datos: ',error)

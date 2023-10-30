@@ -29,7 +29,7 @@ const getUser = async(req,res) => {
     //res.send('get user')
 }
 
-const signUser = async(req,res) => {
+const loginUser = async(req,res) => {
  //console.log(req)
  const {email,password} = req.body
  try {
@@ -107,4 +107,4 @@ const deleteUser = async(req,res) => {
  //res.send('Delete users')
 }
 
-module.exports = {getUsers, getUser,signUser, createUser, updateUser, deleteUser}
+module.exports = {getUsers, getUser,loginUser, createUser, updateUser, deleteUser}
