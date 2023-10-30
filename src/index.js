@@ -9,7 +9,7 @@ const { Booking } = require('./models/Booking.js');
 const { BookingPax } = require('./models/BookingPax.js');
 //
 
-sequelize.sync({force: true}) // force :true /// alter:true
+sequelize.sync({alter: true}) // force :true /// alter:true
 .then(()=>{
 console.log('Database connected');
 server.listen(3000)
