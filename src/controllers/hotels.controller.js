@@ -7,9 +7,10 @@ const getHotels = async (req,res) => {
  try {
   //throw new Error('test error')
  const listHotels = await Hotel.findAll()
+ const listRooms = await Room.findAll()
  //console.log(listHotels)
  //res.json(listHotels)
- return res.status(200).json(listHotels) 
+ return res.status(200).json({'hoteles': listHotels, 'habitaciones': listRooms}) 
  } catch (error) {
   //console.log('error:',error)
   return res.status(402).json(error.message) 
