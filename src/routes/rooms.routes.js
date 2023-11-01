@@ -5,9 +5,9 @@ const {getRooms, getRoom, createRoom, updateRoom, deleteRoom} = require('../cont
 const router = Router();
 
 router.get('/rooms/hotel/:hotelId', getRooms);
-router.get('/rooms/:id', getRoom);
-router.post('/rooms', createRoom);
-router.put('/rooms/:id', updateRoom);
-router.delete('/rooms/:id', deleteRoom);
+router.get('/room/:id', getRoom);
+router.post('/room', createRoom);
+router.put('/room/:id', updateRoom);
+router.delete('/room/:id', deleteRoom);
 
 module.exports = router;

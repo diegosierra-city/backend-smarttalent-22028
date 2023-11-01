@@ -5,10 +5,10 @@ const {getHotels, getHotel, createHotel, updateHotel, deleteHotel,searchRooms} =
 const router = Router();
 
 router.get('/hotels', getHotels);
-router.get('/hotels/:id', getHotel);
-router.post('/hotels', createHotel);
+router.get('/hotel/:id', getHotel);
+router.post('/hotel', createHotel);
 router.post('/hotels/search', searchRooms);
-router.put('/hotels/:id', updateHotel);
-router.delete('/hotels/:id', deleteHotel);
+router.put('/hotel/:id', updateHotel);
+router.delete('/hotel/:id', deleteHotel);
 
 module.exports = router;

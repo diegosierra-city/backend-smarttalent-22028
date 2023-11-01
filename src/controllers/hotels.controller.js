@@ -37,9 +37,7 @@ const createHotel = async(req,res) => {
  const {hotel,country,city,address,taxes} = req.body
  try {
  const newHotel = await Hotel.create({hotel,country,city,address,taxes})
- //console.log(newHotel)
- //res.json(newHotel)
- return res.status(200).json(newHotel)  
+  return res.status(200).json(newHotel)  
  } catch (error) {
   //console.log('error:',error)
   return res.status(402).json(error.message) 
