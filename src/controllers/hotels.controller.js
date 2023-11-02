@@ -10,8 +10,8 @@ const getHotels = async (req,res) => {
  const listRooms = await Room.findAll()
  //console.log(listHotels)
  //res.json(listHotels)
- let listFinalHoteles: any
- let listFinalHabitaciones: any
+ let listFinalHoteles
+ let listFinalHabitaciones
 
  listHotels?listFinalHoteles=listHotels : listFinalHoteles=[]
  listRooms?listFinalHabitaciones=listRooms : listFinalHabitaciones=[]

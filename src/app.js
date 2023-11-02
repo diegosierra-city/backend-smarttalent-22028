@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 //
 const hotelsRoutes = require('./routes/hotels.routes');
 const roomsRoutes = require('./routes/rooms.routes');
@@ -12,7 +12,8 @@ const app = express();
 // midleawares
 app.use(express.json());
 app.use(cors());
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
+
 
 //app.use(cors());
 app.use(hotelsRoutes)
