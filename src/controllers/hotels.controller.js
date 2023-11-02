@@ -10,7 +10,14 @@ const getHotels = async (req,res) => {
  const listRooms = await Room.findAll()
  //console.log(listHotels)
  //res.json(listHotels)
- return res.status(200).json({'hoteles': listHotels, 'habitaciones': listRooms}) 
+ let listFinalHoteles: any
+ let listFinalHabitaciones: any
+
+ listHotels?listFinalHoteles=listHotels : listFinalHoteles=[]
+ listRooms?listFinalHabitaciones=listRooms : listFinalHabitaciones=[]
+
+ 
+ return res.status(200).json({'hoteles': listFinalHoteles, 'habitaciones': listFinalHabitaciones}) 
  } catch (error) {
   //console.log('error:',error)
   return res.status(402).json(error.message) 
