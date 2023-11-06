@@ -49,7 +49,7 @@ if (!newUser){
 const token = jwt.sign({
   id: user.id,
   name: user.name  
-}, '9Uy-po+)yh6', {expiresIn: '1m'})//1h
+}, '9Uy-po+)yh6', {expiresIn: 60*2})//'1h' //2min
 
 return res.status(200).json(token)
  } catch (error) {
