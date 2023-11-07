@@ -5,7 +5,7 @@ const {getRooms, getAllRooms, getRoom, createRoom, updateRoom, deleteRoom} = req
 const router = Router();
 
 router.get('/rooms/hotel/:hotelId', getRooms);
-router.get('/rooms', getAllRooms);
+router.get('/allrooms', getAllRooms);
 router.get('/room/:id', getRoom);
 router.post('/room', createRoom);
 router.put('/room/:id', updateRoom);
