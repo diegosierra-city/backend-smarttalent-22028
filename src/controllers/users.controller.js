@@ -1,6 +1,6 @@
 const {User} = require('../models/User')
 const md5 = require("md5");
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 
 const getUsers = async (req,res) => {
  try {
@@ -45,13 +45,19 @@ if (!newUser){
    .status(400)
    .send("Error en usuario o clave, por favor revisa e intenta de nuevo");
 }
-
+/*
 const token = jwt.sign({
-  id: user.id,
-  name: user.name  
+  id: newUser.id,
+  name: newUser.name  
 }, '9Uy-po+)yh6', {expiresIn: 60*2})//'1h' //2min
 
 return res.status(200).json(token)
+*/
+let finalUser = {
+  id: newUser.id,
+  name: newUser.name,
+}
+return res.status(200).json(finalUser)
  } catch (error) {
   //console.log('error:',error)
   return res.status(402).json(error.message) 
