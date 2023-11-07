@@ -6,7 +6,8 @@ const getRooms = async (req,res) => {
   //throw new Error('test error')
  const listRooms = await Room.findAll({
   where:{
-hotelId
+hotelId,
+active:true
   }
  })
  //console.log(listRooms)
@@ -19,6 +20,24 @@ hotelId
     //res.send('get rooms')
 //
 }
+
+const getAllRooms = async (req,res) => {
+  try {
+   //throw new Error('test error')
+  const listRooms = await Room.findAll({
+   where:{
+ active:true
+   }
+  })
+  //console.log(listRooms)
+  //res.json(listRooms)
+  return res.status(200).json(listRooms) 
+  } catch (error) {
+   //console.log('error:',error)
+   return res.status(402).json(error.message) 
+  }
+     
+ }
 
 const getRoom = async(req,res) => {
  const {id} = req.params
