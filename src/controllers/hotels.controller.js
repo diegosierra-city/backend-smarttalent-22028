@@ -123,7 +123,23 @@ const deleteHotel = async(req,res) => {
       //console.error(error);
       res.status(500).json({ message: error.message});
     }
-  };
+  }
+
+  const getCities = async (req,res) => {
+    try {
+    // buscar las diferentes city de la tabla Hotel
+    const cities = await Hotel.findAll({
+        attributes: ['city']
+    })
+        
+    return res.status(200).json({cities})
+    } catch (error) {
+     //console.log('error:',error)
+     return res.status(402).json(error.message) 
+    }
+       //res.send('get cities')
+   //
+   }
   
 
-module.exports = {getHotels, getHotel, createHotel, updateHotel, deleteHotel,searchRooms}
+module.exports = {getHotels, getHotel, createHotel, updateHotel, deleteHotel,searchRooms, getCities}
