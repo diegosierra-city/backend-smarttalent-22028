@@ -127,10 +127,12 @@ const deleteHotel = async(req,res) => {
 
   const getCities = async (req,res) => {
     try {
-    // buscar las diferentes city de la tabla Hotel
+    // buscar las diferentes city de la tabla Hotel sin que se repitan
     const cities = await Hotel.findAll({
-        attributes: ['city']
+        attributes: ['city'],
+        group: ['city']
     })
+
         
     return res.status(200).json({cities})
     } catch (error) {
