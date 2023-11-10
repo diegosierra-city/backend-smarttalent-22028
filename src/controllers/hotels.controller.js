@@ -102,6 +102,12 @@ const deleteHotel = async(req,res) => {
         return res.status(400).send('Fecha inválida');
       }*/
 
+  function filterHotelsWithRooms(hotels, rooms) {
+  const hotelIds = new Set(rooms.map(r => r.hotelId));  
+  return hotels.filter(h => hotelIds.has(h.id));
+}
+
+
     try {
         const hotels = await Hotel.findAll({
           where: {
@@ -121,8 +127,9 @@ const deleteHotel = async(req,res) => {
         const finalRooms = rooms.filter(room => {
             return !bookings.includes(room.id) && room.capacity >= pax
         })
+        const finalHoteles = filterHotelsWithRooms(hotels, finalRooms)
 
-          return res.status(200).json({hotels,finalRooms})    
+          return res.status(200).json({finalHoteles,finalRooms})    
     } catch (error) {
       //console.error(error);
       res.status(500).json({ message: error.message});
