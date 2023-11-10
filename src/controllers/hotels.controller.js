@@ -129,13 +129,13 @@ const deleteHotel = async(req,res) => {
         })
 
         // Filtrar los hoteles que tienen su id en el array de habitaciones
-const hotelesConHabitaciones = hotels.filter(hotel =>
+const finalHotels = hotels.filter(hotel =>
   finalRooms.some(habitacion => habitacion.hotelId === hotel.id)
 );
 
         //const finalHoteles = filterHotelsWithRooms(hotels, finalRooms)
 
-          return res.status(200).json({hotels,finalRooms})    
+          return res.status(200).json({finalHotels,finalRooms})    
     } catch (error) {
       //console.error(error);
       res.status(500).json({ message: error.message});
