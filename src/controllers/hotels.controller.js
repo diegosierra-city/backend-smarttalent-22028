@@ -96,14 +96,18 @@ const deleteHotel = async(req,res) => {
 
 
    const searchRooms = async (req, res) => {
-    let { dateIn, dateOut, pax } = req.query;
-   
+    let { dateIn, dateOut, pax,city } = req.query;
+   /*
     if(isNaN(Date.parse(dateIn))) {
         return res.status(400).send('Fecha inválida');
-      }
+      }*/
 
     try {
-        const hotels = await Hotel.findAll();
+        const hotels = await Hotel.findAll({
+          where: {
+            city: city
+          }
+        });
         const rooms = await Room.findAll();
         // buscamos las reservas para este rango de fechas
         const bookings = await Booking.findAll({
