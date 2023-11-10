@@ -135,7 +135,7 @@ const hotelesConHabitaciones = hotels.filter(hotel =>
 
         //const finalHoteles = filterHotelsWithRooms(hotels, finalRooms)
 
-          return res.status(200).json({hotelesConHabitaciones,finalRooms})    
+          return res.status(200).json({hotels,finalRooms})    
     } catch (error) {
       //console.error(error);
       res.status(500).json({ message: error.message});
