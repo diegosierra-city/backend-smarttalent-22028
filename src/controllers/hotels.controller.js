@@ -128,7 +128,7 @@ const deleteHotel = async(req,res) => {
         }) 
         // se muestran solo las rooms que tecgan capacity igual o mayor que pax y que no este su id en el listado de bookings
         const finalRooms = rooms.filter(room => {
-        return !bookings.includes(room.id) && room.capacity === pax
+        return !bookings.includes(room.id) && room.capacity == pax
         })
 
         // Filtrar los hoteles que tienen su id en el array de habitaciones
