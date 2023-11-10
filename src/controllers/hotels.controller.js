@@ -96,7 +96,7 @@ const deleteHotel = async(req,res) => {
 
 
    const searchRooms = async (req, res) => {
-    let { dateIn, dateOut, pax,city } = req.query;
+    let { dateIn, dateOut, pax,city } = req.body;
    /*
     if(isNaN(Date.parse(dateIn))) {
         return res.status(400).send('Fecha inválida');
