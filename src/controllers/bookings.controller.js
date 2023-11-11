@@ -32,10 +32,10 @@ const getBooking = async(req,res) => {
 const createBooking = async(req,res) => {
  //console.log(req)
  //return res.status(401).json(req.body) 
- const {pax,dateIn,dateOut,price,emergency_name,emergency_phone} = req.body[0]
+ const {pax,dateIn,dateOut,price,emergency_name,emergency_phone,roomId} = req.body[0]
  const listPax = req.body[1]
  try {
- const newBooking = await Booking.create({pax,dateIn,dateOut,price,emergency_name,emergency_phone})
+ const newBooking = await Booking.create({pax,dateIn,dateOut,price,emergency_name,emergency_phone,roomId})
  //console.log(newBooking)
  //res.json(newBooking)
  ///registramos los pax
