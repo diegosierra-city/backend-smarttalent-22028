@@ -45,7 +45,7 @@ active:{
  })
 
  ///relations
- // cada Booking corresponde a una sola Room
+ // cada Booking corresponde a una sola Room // targetKey
  Booking.belongsTo(Room, {
   foreignKey: 'roomId',
   sourceKey: 'id'

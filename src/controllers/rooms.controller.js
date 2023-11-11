@@ -39,6 +39,20 @@ const getAllRooms = async (req,res) => {
      
  }
 
+ const getAllRoomsTotal = async (req,res) => {
+  try {
+   //throw new Error('test error')
+  const listRooms = await Room.findAll()
+  //console.log(listRooms)
+  //res.json(listRooms)
+  return res.status(200).json(listRooms) 
+  } catch (error) {
+   //console.log('error:',error)
+   return res.status(402).json(error.message) 
+  }
+     
+ }
+
 const getRoom = async(req,res) => {
  const {id} = req.params
  try {
@@ -109,4 +123,4 @@ const deleteRoom = async(req,res) => {
  //res.send('Delete rooms')
 }
 
-module.exports = {getRooms, getRoom, getAllRooms, createRoom, updateRoom, deleteRoom}
+module.exports = {getRooms, getRoom, getAllRooms,getAllRoomsTotal, createRoom, updateRoom, deleteRoom}
