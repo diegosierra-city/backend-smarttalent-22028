@@ -4,7 +4,11 @@ const {BookingPax} = require('../models/BookingPax')
 const getBookings = async (req,res) => {
  try {
   //throw new Error('test error')
- const listBookings = await Booking.findAll()
+ const listBookings = await Booking.findAll({
+    where:{
+        active: true
+    }
+ })
  //console.log(listBookings)
  //res.json(listBookings)
  return res.status(200).json(listBookings) 
