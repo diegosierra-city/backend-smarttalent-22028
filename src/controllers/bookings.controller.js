@@ -31,15 +31,33 @@ const getBooking = async(req,res) => {
 
 const createBooking = async(req,res) => {
  //console.log(req)
- const {pax,dateIn,dateOut,price,emergency_name,emergency_phone} = req.body
+ //return res.status(401).json(req.body) 
+ const {pax,dateIn,dateOut,price,emergency_name,emergency_phone} = req.body[0]
+ const listPax = req.body[1]
  try {
  const newBooking = await Booking.create({pax,dateIn,dateOut,price,emergency_name,emergency_phone})
  //console.log(newBooking)
  //res.json(newBooking)
- return res.status(200).json(newBooking)  
+ ///registramos los pax
+ for(paxData of listPax){
+  await BookingPax.create({
+  name: paxData.name,
+  last_name: paxData.last_name,
+  birthday: paxData.birthday,
+  genere: paxData.genere,
+  document_type: paxData.document_type,
+  document_number: paxData.document_number,
+  email: paxData.email,
+  phone: paxData.phone,
+  active: true,
+  bookingId: newBooking.id
+ })
+ }
+ 
+ return res.status(200).send('Reserva Creada')  
  } catch (error) {
   //console.log('error:',error)
-  return res.status(402).json(error.message) 
+  return res.status(400).json(error.message) 
  }
  //res.send('create bookings')
 }
